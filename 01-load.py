@@ -81,5 +81,5 @@ def download_file_from_s3(bucket_name, remote_path, local_path):
     http://boto3.readthedocs.io/en/latest/guide/s3-examples.html
     """
     s3 = boto3.resource('s3')
-    s3.Bucket(bucket_name).download_file(remote_path, local_path')
+    s3.Bucket(bucket_name).download_file(remote_path, local_path)
     return

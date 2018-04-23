@@ -15,12 +15,16 @@ from google.cloud import storage, bigquery
 import boto3
 
 
-def read_local_csv(path):
+def read_local_csv(path, date_cols=None):
     """
     Read local csv file into a dataframe
     https://pandas.pydata.org/pandas-docs/stable/io.html#io-read-csv-table
     """
-    df = pd.read_csv('.csv')
+    if type(date_cols) is list:
+        d = date_cols
+    else:
+        d = []
+    df = pd.read_csv('.csv', parse_dates=d)
     return df
 
 #--------------#

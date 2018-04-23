@@ -1,5 +1,6 @@
+from pandas import to_datetime
 
-def convert_column_to_datetime(df, col, fmt='%Y-%m-%d'):
-    """Convert dataframe column to datetime"""
-    df[col] = pd.to_datetime(my_df[col], format=fmt)
-    return df
+
+def convert_series_to_datetime(s, fmt='%Y-%m-%d'):
+    """Convert series to datetime"""
+    return to_datetime(s, format=fmt)

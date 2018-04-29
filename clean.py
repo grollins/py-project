@@ -1,5 +1,5 @@
 from numpy import nan
-from pandas import to_datetime, to_numeric
+from pandas import to_datetime, to_numeric, Grouper
 from fuzzywuzzy import process
 
 
@@ -61,7 +61,7 @@ def aggregate_over_time_freq(df, group_col='group', dt_col='date', freq='M',
     http://pbpython.com/pandas-grouper-agg.html
     http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
     """
-    g = pd.Grouper(key=dt_col, freq=freq)
+    g = Grouper(key=dt_col, freq=freq)
     return df.groupby([group_col, g])[value_col].sum()
 
 def do_agg(df, cols, agg_fcn=None):

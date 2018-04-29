@@ -24,7 +24,7 @@ def read_local_csv(path, date_cols=None):
         d = date_cols
     else:
         d = []
-    df = pd.read_csv('.csv', parse_dates=d)
+    df = pd.read_csv(path, parse_dates=d)
     return df
 
 #--------------#
